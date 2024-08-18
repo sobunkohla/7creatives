@@ -8,7 +8,14 @@ import React from "react"
 const SinglePost = () => {
   const router = useRouter()
   const { id } = router.query
+
+  // Ensure `id` is available before searching for the post
   const post = blogdata.find((post) => post.id === parseInt(id))
+
+  // Handle the case when `post` is undefined
+  if (!post) {
+    return <div>Post not found</div>
+  }
 
   return (
     <>
@@ -26,9 +33,9 @@ const SinglePost = () => {
             </div>
             <div className='desc'>
               <TitleSm title='Phasellus at magna - elit tristique lacinia. Integer a justo vitae arcu fermentum consequat.' />
-              <p className='desc-p'> Nulla iaculis convallis fermentum. Suspendisse eget elit mauris. Phasellus velit nisi, lobortis quis nisi et, venenatis finibus velit. Integer non nibh eget arcu malesuada ullamcorper. Quisque congue ante in consequat auctor. Morbi ut accumsan eros. Mauris semper suscipit mattis. Cras pellentesque a urna ac dictum. Pellentesque blandit, sapien vel faucibus accumsan, ante dui imperdiet nisi, ut tincidunt nulla tortor nec purus.</p>
-              <p className='desc-p'>Suspendisse eget elit mauris. Phasellus velit nisi, lobortis quis nisi et, venenatis finibus velit. Integer non nibh eget arcu malesuada ullamcorper.</p>
-              <p className='desc-p'>Quisque congue ante in consequat auctor. Morbi ut accumsan eros. Mauris semper suscipit mattis. Cras pellentesque a urna ac dictum. Pellentesque blandit, sapien vel faucibus accumsan, ante dui imperdiet nisi, ut tincidunt nulla tortor nec purus.</p>
+              <p className='desc-p'> Nulla iaculis convallis fermentum...</p>
+              <p className='desc-p'>Suspendisse eget elit mauris...</p>
+              <p className='desc-p'>Quisque congue ante in consequat auctor...</p>
             </div>
           </div>
           <Banner />
@@ -36,11 +43,10 @@ const SinglePost = () => {
           <div className='heading-title'>
             <div className='desc'>
               <TitleSm title='Integer a justo vitae arcu fermentum...' />
-
-              <p className='desc-p'> Phasellus nec tempor neque. In nec finibus lorem, in aliquet risus. Proin elit elit, cursus vel vulputate at, volutpat quis metus. Praesent at blandit tellus.</p>
-              <p className='desc-p'>Morbi finibus velit erat, a pulvinar lacus mollis sit amet. Nulla iaculis convallis fermentum. Suspendisse eget elit mauris. Phasellus velit nisi, lobortis quis nisi et, venenatis finibus velit. Integer non nibh eget arcu malesuada ullamcorper! Quisque congue ante in consequat auctor. Morbi ut accumsan eros. Mauris semper suscipit mattis. Cras pellentesque a urna ac dictum. Pellentesque blandit, sapien vel faucibus accumsan, ante dui imperdiet nisi, ut tincidunt nulla tortor nec purus.</p>
-              <p className='desc-p'>Suspendisse eget elit mauris. Phasellus velit nisi, lobortis quis nisi et, venenatis finibus velit. Integer non nibh eget arcu malesuada ullamcorper.</p>
-              <p className='desc-p'>Quisque congue ante in consequat auctor. Morbi ut accumsan eros. Mauris semper suscipit mattis. Cras pellentesque a urna ac dictum. Pellentesque blandit, sapien vel faucibus accumsan, ante dui imperdiet nisi, ut tincidunt nulla tortor nec purus.</p>
+              <p className='desc-p'> Phasellus nec tempor neque...</p>
+              <p className='desc-p'>Morbi finibus velit erat...</p>
+              <p className='desc-p'>Suspendisse eget elit mauris...</p>
+              <p className='desc-p'>Quisque congue ante in consequat auctor...</p>
             </div>
           </div>
         </div>
